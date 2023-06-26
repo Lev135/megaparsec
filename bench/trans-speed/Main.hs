@@ -17,6 +17,7 @@ import Data.Void
 import Text.Megaparsec
 import Text.Megaparsec.Char
 import qualified Control.Monad.State as S
+import qualified Control.Monad.State.Strict as Str
 import Control.Monad.Identity
 import qualified Text.Megaparsec.InjectState as Inj
 
@@ -34,6 +35,10 @@ type ParserTState = ParsecT Void Text (S.State Int)
 type ParserInjectSt = Inj.ParsecT Int Void Text Identity
 
 type StateTParser = S.StateT Int (Parsec Void Text)
+
+type ParserTStrState = ParsecT Void Text (Str.State Int)
+
+type StrStateTParser = Str.StateT Int (Parsec Void Text)
 
 type ParserM = MonadParsec Void Text
 
@@ -61,6 +66,8 @@ bparser name f p = bgroup name
     , bgroup "ParserT State" (sbs <$> stdSeries)
     , bgroup "StateT Parser" (s'bs <$> stdSeries)
     , bgroup "State inject parser" (ibs <$> stdSeries)
+    , bgroup "ParserT strict State" (strbs <$> stdSeries)
+    , bgroup "strict StateT Parser" (str'bs <$> stdSeries)
     ]
   where
     bs n = env (return (f n, n)) (bench (show n) . nf p')
@@ -71,6 +78,11 @@ bparser name f p = bgroup name
     s'p' (s, n) = runParser ((`S.runStateT` 0) (p (s, n) :: StateTParser a)) "" s
     ibs n = env (return (f n, n)) (bench (show n) . nf ip')
     ip' (s, n) = runIdentity $ Inj.runParserT (p (s, n) :: ParserInjectSt a) "" s 0
+    strbs n = env (return (f n, n)) (bench (show n) . nf strp')
+    strp' (s, n) = (`Str.runState` 0) $ runParserT (p (s, n) :: ParserTStrState a) "" s
+    str'bs n = env (return (f n, n)) (bench (show n) . nf str'p')
+    str'p' (s, n) = runParser ((`Str.runStateT` 0) (p (s, n) :: StrStateTParser a)) "" s
+
 
 
 -- | The series of sizes to try as part of 'bparser'.
