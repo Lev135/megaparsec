@@ -18,6 +18,7 @@ import Text.Megaparsec
 import Text.Megaparsec.Char
 import qualified Control.Monad.State as S
 import Control.Monad.Identity
+import qualified Text.Megaparsec.InjectState as Inj
 
 newtype FakeState a = FakeState {runFakeState :: a }
   deriving (Functor, Applicative, Monad) via Identity
@@ -29,6 +30,8 @@ instance S.MonadState Int FakeState where
 type Parser = ParsecT Void Text FakeState
 
 type ParserTState = ParsecT Void Text (S.State Int)
+
+type ParserInjectSt = Inj.ParsecT Int Void Text Identity
 
 type StateTParser = S.StateT Int (Parsec Void Text)
 
@@ -57,6 +60,7 @@ bparser name f p = bgroup name
     [ bgroup "pure" (bs <$> stdSeries)
     , bgroup "ParserT State" (sbs <$> stdSeries)
     , bgroup "StateT Parser" (s'bs <$> stdSeries)
+    , bgroup "State inject parser" (ibs <$> stdSeries)
     ]
   where
     bs n = env (return (f n, n)) (bench (show n) . nf p')
@@ -65,6 +69,8 @@ bparser name f p = bgroup name
     sp' (s, n) = (`S.runState` 0) $ runParserT (p (s, n) :: ParserTState a) "" s
     s'bs n = env (return (f n, n)) (bench (show n) . nf s'p')
     s'p' (s, n) = runParser ((`S.runStateT` 0) (p (s, n) :: StateTParser a)) "" s
+    ibs n = env (return (f n, n)) (bench (show n) . nf ip')
+    ip' (s, n) = runIdentity $ Inj.runParserT (p (s, n) :: ParserInjectSt a) "" s 0
 
 
 -- | The series of sizes to try as part of 'bparser'.

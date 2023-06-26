@@ -47,6 +47,7 @@ library
         Text.Megaparsec.Internal
         Text.Megaparsec.Pos
         Text.Megaparsec.Stream
+        Text.Megaparsec.InjectState
 
     other-modules:
         Text.Megaparsec.Class
