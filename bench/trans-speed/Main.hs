@@ -43,11 +43,15 @@ type StrStateTParser = Str.StateT Int (Parsec Void Text)
 type ParserM = MonadParsec Void Text
 
 main :: IO ()
-main =
+main = do
+  let p :: forall x m. (ParserM m, S.MonadState Int m) => x -> m String
+      p = const $ sepBy (char 'a') (char 'b' <* S.modify succ)
   defaultMain
-    [ bparser "no modify" manyAbs (const $ sepBy (char 'a') (char 'b'))
-    , bparser "1/2 modify" manyAbs (const $ sepBy (char 'a') (S.modify succ *> char 'b'))
-    , bparser "all modify" manyAbs (const $ sepBy (S.modify succ *> char 'a') (S.modify succ *> char 'b'))
+    [ bparser "1/20 modify" (manyAbs 20) p
+    , bparser "1/10 modify" (manyAbs 10) p
+    , bparser "1/5 modify" (manyAbs 5) p
+    , bparser "1/3 modify" (manyAbs 3) p
+    , bparser "1/2 modify" (manyAbs 2) p
     ]
 
 -- | Perform a series to measurements with the same parser.
@@ -64,10 +68,10 @@ bparser :: forall a.
 bparser name f p = bgroup name
     [ bgroup "pure" (bs <$> stdSeries)
     , bgroup "ParserT State" (sbs <$> stdSeries)
-    , bgroup "StateT Parser" (s'bs <$> stdSeries)
+    -- , bgroup "StateT Parser" (s'bs <$> stdSeries)
     , bgroup "State inject parser" (ibs <$> stdSeries)
     , bgroup "ParserT strict State" (strbs <$> stdSeries)
-    , bgroup "strict StateT Parser" (str'bs <$> stdSeries)
+    -- , bgroup "strict StateT Parser" (str'bs <$> stdSeries)
     ]
   where
     bs n = env (return (f n, n)) (bench (show n) . nf p')
@@ -87,11 +91,10 @@ bparser name f p = bgroup name
 
 -- | The series of sizes to try as part of 'bparser'.
 stdSeries :: [Int]
-stdSeries = [1000] -- [500, 1000, 2000, 4000]
+stdSeries = [2000] -- [500, 1000, 2000, 4000]
 
 ----------------------------------------------------------------------------
 -- Helpers
 
--- | Like 'manyAs', but interspersed with \'b\'s.
-manyAbs :: Int -> Text
-manyAbs n = T.take (if even n then n + 1 else n) (T.replicate n "ab")
+manyAbs :: Int -> Int -> Text
+manyAbs k n = T.take n (T.replicate n $ T.replicate (k - 1) "a" <> "b") <> "a"
