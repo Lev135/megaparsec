@@ -1,0 +1,34 @@
+Case                                                    Allocated  GCs     Max
+CSV (Attoparsec)-csv-5.csv                                 88,608    0  11,064
+CSV (Attoparsec)-csv-10.csv                               155,648    0  12,784
+CSV (Attoparsec)-csv-20.csv                               293,688    0  20,312
+CSV (Attoparsec)-csv-40.csv                               564,088    0  27,200
+CSV (Megaparsec)-csv-5.csv                                 62,624    0  11,112
+CSV (Megaparsec)-csv-10.csv                               103,368    0  12,832
+CSV (Megaparsec)-csv-20.csv                               188,808    0  20,352
+CSV (Megaparsec)-csv-40.csv                               354,024    0  27,240
+Log (Attoparsec)-log-5.log                                160,632    0  11,120
+Log (Attoparsec)-log-10.log                               297,440    0  12,360
+Log (Attoparsec)-log-20.log                               570,928    0  14,840
+Log (Attoparsec)-log-40.log                             1,120,392    0  19,800
+Log (Megaparsec)-log-5.log                                180,680    0  11,216
+Log (Megaparsec)-log-10.log                               337,184    0  12,456
+Log (Megaparsec)-log-20.log                               650,064    0  14,936
+Log (Megaparsec)-log-40.log                             1,278,312    0  19,896
+JSON (Attoparsec)-json-5.json                              31,240    0  10,104
+JSON (Attoparsec)-json-10.json                             43,624    0  10,104
+JSON (Attoparsec)-json-20.json                             76,840    0  10,288
+JSON (Attoparsec)-json-40.json                            134,928    0  10,288
+JSON (Megaparsec)-json-5.json                              32,704    0  10,104
+JSON (Megaparsec)-json-10.json                             46,960    0  10,104
+JSON (Megaparsec)-json-20.json                             82,904    0  10,288
+JSON (Megaparsec)-json-40.json                            147,344    0  10,288
+JSON (Megaparsec simple)-json-5.json                       36,784    0  10,104
+JSON (Megaparsec simple)-json-10.json                      56,976    0  10,104
+JSON (Megaparsec simple)-json-20.json                     112,208    0  10,288
+JSON (Megaparsec simple)-json-40.json                     207,320    0  10,288
+JSON (Megaparsec simple choice-optimized)-json-5.json      28,120    0  10,104
+JSON (Megaparsec simple choice-optimized)-json-10.json     36,096    0  10,104
+JSON (Megaparsec simple choice-optimized)-json-20.json     58,032    0  10,288
+JSON (Megaparsec simple choice-optimized)-json-40.json     95,728    0  10,288
+Benchmark bench-memory: FINISH

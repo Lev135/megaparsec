@@ -8,6 +8,8 @@ import qualified ParsersBench.CSV.Attoparsec as A
 import qualified ParsersBench.CSV.Megaparsec as M
 import qualified ParsersBench.Json.Attoparsec as A
 import qualified ParsersBench.Json.Megaparsec as M
+import qualified ParsersBench.Json.MegaparsecSimple as MS
+import qualified ParsersBench.Json.MegaparsecSimpleOpt as MSO
 import qualified ParsersBench.Log.Attoparsec as A
 import qualified ParsersBench.Log.Megaparsec as M
 import Weigh
@@ -27,6 +29,10 @@ main = mainWith $ do
     bparser "JSON (Attoparsec)" file A.parseJson
   forM_ jsonFiles $ \file ->
     bparser "JSON (Megaparsec)" file M.parseJson
+  forM_ jsonFiles $ \file ->
+    bparser "JSON (Megaparsec simple)" file MS.parseJson
+  forM_ jsonFiles $ \file ->
+    bparser "JSON (Megaparsec simple choice-optimized)" file MSO.parseJson
 
 bparser :: (NFData a) => String -> FilePath -> (ByteString -> a) -> Weigh ()
 bparser pre desc f = io (pre ++ "-" ++ desc) m path

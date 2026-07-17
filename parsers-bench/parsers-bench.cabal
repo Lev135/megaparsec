@@ -29,6 +29,8 @@ library
         ParsersBench.Json.Attoparsec
         ParsersBench.Json.Common
         ParsersBench.Json.Megaparsec
+        ParsersBench.Json.MegaparsecSimple
+        ParsersBench.Json.MegaparsecSimpleOpt
         ParsersBench.Log.Attoparsec
         ParsersBench.Log.Common
         ParsersBench.Log.Megaparsec
@@ -86,6 +88,25 @@ benchmark bench-memory
         deepseq -any,
         parsers-bench -any,
         weigh -any
+
+    if flag(dev)
+        ghc-options:
+            -Wall -Werror -Wredundant-constraints -Wpartial-fields
+            -Wunused-packages
+
+    else
+        ghc-options: -O2 -Wall
+
+test-suite test
+    type:               exitcode-stdio-1.0
+    main-is:            Main.hs
+    hs-source-dirs:     test
+    default-language:   Haskell2010
+    build-depends:
+        base -any,
+        bytestring -any,
+        parsers-bench -any,
+        hspec -any
 
     if flag(dev)
         ghc-options:

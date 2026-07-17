@@ -8,6 +8,8 @@ import qualified ParsersBench.CSV.Attoparsec as A
 import qualified ParsersBench.CSV.Megaparsec as M
 import qualified ParsersBench.Json.Attoparsec as A
 import qualified ParsersBench.Json.Megaparsec as M
+import qualified ParsersBench.Json.MegaparsecSimple as MS
+import qualified ParsersBench.Json.MegaparsecSimpleOpt as MSO
 import qualified ParsersBench.Log.Attoparsec as A
 import qualified ParsersBench.Log.Megaparsec as M
 
@@ -31,7 +33,13 @@ main =
         [bparser file A.parseJson | file <- jsonFiles],
       bgroup
         "JSON (Megapasec)"
-        [bparser file M.parseJson | file <- jsonFiles]
+        [bparser file M.parseJson | file <- jsonFiles],
+      bgroup
+        "JSON (Megaparsec simple)"
+        [bparser file MS.parseJson | file <- jsonFiles],
+      bgroup
+        "JSON (Megaparsec simple choice-optimized)"
+        [bparser file MSO.parseJson | file <- jsonFiles]
     ]
 
 bparser :: (NFData a) => FilePath -> (ByteString -> a) -> Benchmark
