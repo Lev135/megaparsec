@@ -83,7 +83,7 @@ jbool = False <$ lexString "false" <|> True <$ lexString "true"
 {-# INLINE jbool #-}
 
 jnumber :: Parser Scientific
-jnumber = lexeme L.scientific
+jnumber = lexeme $ L.signed space L.scientific
 {-# INLINE jnumber #-}
 
 jstring :: Parser Text

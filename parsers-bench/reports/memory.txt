@@ -19,16 +19,20 @@ JSON (Attoparsec)-json-5.json                              31,240    0  10,104
 JSON (Attoparsec)-json-10.json                             43,624    0  10,104
 JSON (Attoparsec)-json-20.json                             76,840    0  10,288
 JSON (Attoparsec)-json-40.json                            134,928    0  10,288
-JSON (Megaparsec)-json-5.json                              32,704    0  10,104
-JSON (Megaparsec)-json-10.json                             46,960    0  10,104
-JSON (Megaparsec)-json-20.json                             82,904    0  10,288
-JSON (Megaparsec)-json-40.json                            147,344    0  10,288
-JSON (Megaparsec simple)-json-5.json                       36,784    0  10,104
-JSON (Megaparsec simple)-json-10.json                      56,976    0  10,104
-JSON (Megaparsec simple)-json-20.json                     112,208    0  10,288
-JSON (Megaparsec simple)-json-40.json                     207,320    0  10,288
-JSON (Megaparsec simple choice-optimized)-json-5.json      28,120    0  10,104
-JSON (Megaparsec simple choice-optimized)-json-10.json     36,096    0  10,104
-JSON (Megaparsec simple choice-optimized)-json-20.json     58,032    0  10,288
-JSON (Megaparsec simple choice-optimized)-json-40.json     95,728    0  10,288
+JSON (Attoparsec)-json-200.json                           281,288    0  31,392
+JSON (Megaparsec)-json-5.json                              33,856    0  10,104
+JSON (Megaparsec)-json-10.json                             49,656    0  10,104
+JSON (Megaparsec)-json-20.json                             90,704    0  10,288
+JSON (Megaparsec)-json-40.json                            163,336    0  10,288
+JSON (Megaparsec)-json-200.json                           318,992    0  32,024
+JSON (Megaparsec simple)-json-5.json                       38,240    0  10,104
+JSON (Megaparsec simple)-json-10.json                      60,368    0  10,104
+JSON (Megaparsec simple)-json-20.json                     121,408    0  10,288
+JSON (Megaparsec simple)-json-40.json                     226,200    0  10,288
+JSON (Megaparsec simple)-json-200.json                    375,688    0  32,024
+JSON (Megaparsec simple choice-optimized)-json-5.json      29,696    0  10,104
+JSON (Megaparsec simple choice-optimized)-json-10.json     39,768    0  10,104
+JSON (Megaparsec simple choice-optimized)-json-20.json     67,784    0  10,288
+JSON (Megaparsec simple choice-optimized)-json-40.json    115,752    0  10,288
+JSON (Megaparsec simple choice-optimized)-json-200.json   203,520    0  32,024
 Benchmark bench-memory: FINISH

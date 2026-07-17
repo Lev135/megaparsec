@@ -98,7 +98,7 @@ value = do
     C_t -> Bool True <$ string "true"
     C_n -> string "null" *> pure Null
     _
-      | w >= C_0 && w <= C_9 || w == C_MINUS -> Number <$> L.scientific
+      | w >= C_0 && w <= C_9 || w == C_MINUS -> Number <$> L.signed space L.scientific
       | otherwise -> fail "not a valid json value"
 
 jstring :: Parser Text
