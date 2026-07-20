@@ -1,0 +1,141 @@
+benchmarking JSON (Attoparsec)/json-5.json
+time                 1.491 μs   (1.426 μs .. 1.587 μs)
+                     0.980 R²   (0.975 R² .. 0.988 R²)
+mean                 1.694 μs   (1.624 μs .. 1.754 μs)
+std dev              233.4 ns   (206.5 ns .. 277.0 ns)
+variance introduced by outliers: 94% (severely inflated)
+
+benchmarking JSON (Attoparsec)/json-10.json
+time                 3.010 μs   (2.995 μs .. 3.026 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 3.040 μs   (3.012 μs .. 3.098 μs)
+std dev              132.6 ns   (53.50 ns .. 232.4 ns)
+variance introduced by outliers: 57% (severely inflated)
+
+benchmarking JSON (Attoparsec)/json-20.json
+time                 7.557 μs   (7.484 μs .. 7.634 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 7.571 μs   (7.509 μs .. 7.753 μs)
+std dev              313.0 ns   (124.0 ns .. 651.9 ns)
+variance introduced by outliers: 52% (severely inflated)
+
+benchmarking JSON (Attoparsec)/json-40.json
+time                 15.47 μs   (15.39 μs .. 15.56 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 15.52 μs   (15.43 μs .. 15.74 μs)
+std dev              454.0 ns   (258.4 ns .. 840.5 ns)
+variance introduced by outliers: 33% (moderately inflated)
+
+benchmarking JSON (Attoparsec)/json-200.json
+time                 39.37 μs   (39.18 μs .. 39.64 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 39.79 μs   (39.47 μs .. 40.32 μs)
+std dev              1.351 μs   (967.4 ns .. 1.922 μs)
+variance introduced by outliers: 37% (moderately inflated)
+
+benchmarking JSON (Megapasec)/json-5.json
+time                 1.549 μs   (1.541 μs .. 1.559 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 1.593 μs   (1.568 μs .. 1.653 μs)
+std dev              121.7 ns   (71.08 ns .. 216.6 ns)
+variance introduced by outliers: 82% (severely inflated)
+
+benchmarking JSON (Megapasec)/json-10.json
+time                 3.490 μs   (3.470 μs .. 3.522 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 3.526 μs   (3.495 μs .. 3.618 μs)
+std dev              164.6 ns   (55.77 ns .. 328.2 ns)
+variance introduced by outliers: 60% (severely inflated)
+
+benchmarking JSON (Megapasec)/json-20.json
+time                 8.289 μs   (8.234 μs .. 8.353 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 8.373 μs   (8.307 μs .. 8.583 μs)
+std dev              364.8 ns   (164.0 ns .. 710.3 ns)
+variance introduced by outliers: 54% (severely inflated)
+
+benchmarking JSON (Megapasec)/json-40.json
+time                 16.72 μs   (16.63 μs .. 16.88 μs)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 16.89 μs   (16.76 μs .. 17.11 μs)
+std dev              570.0 ns   (356.9 ns .. 842.0 ns)
+variance introduced by outliers: 39% (moderately inflated)
+
+benchmarking JSON (Megapasec)/json-200.json
+time                 42.09 μs   (41.64 μs .. 42.69 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 41.95 μs   (41.77 μs .. 42.21 μs)
+std dev              769.2 ns   (591.2 ns .. 1.058 μs)
+variance introduced by outliers: 14% (moderately inflated)
+
+benchmarking JSON (Megaparsec simple)/json-5.json
+time                 1.747 μs   (1.712 μs .. 1.782 μs)
+                     0.996 R²   (0.995 R² .. 0.998 R²)
+mean                 1.724 μs   (1.699 μs .. 1.755 μs)
+std dev              94.56 ns   (76.78 ns .. 120.9 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking JSON (Megaparsec simple)/json-10.json
+time                 3.635 μs   (3.576 μs .. 3.719 μs)
+                     0.996 R²   (0.992 R² .. 0.999 R²)
+mean                 3.699 μs   (3.629 μs .. 3.810 μs)
+std dev              280.4 ns   (206.1 ns .. 412.8 ns)
+variance introduced by outliers: 80% (severely inflated)
+
+benchmarking JSON (Megaparsec simple)/json-20.json
+time                 9.108 μs   (8.829 μs .. 9.499 μs)
+                     0.994 R²   (0.989 R² .. 0.999 R²)
+mean                 8.986 μs   (8.867 μs .. 9.224 μs)
+std dev              548.7 ns   (279.5 ns .. 905.9 ns)
+variance introduced by outliers: 70% (severely inflated)
+
+benchmarking JSON (Megaparsec simple)/json-40.json
+time                 17.72 μs   (17.60 μs .. 17.82 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 17.73 μs   (17.63 μs .. 17.98 μs)
+std dev              490.7 ns   (226.2 ns .. 1.020 μs)
+variance introduced by outliers: 30% (moderately inflated)
+
+benchmarking JSON (Megaparsec simple)/json-200.json
+time                 39.88 μs   (39.10 μs .. 41.18 μs)
+                     0.996 R²   (0.991 R² .. 0.999 R²)
+mean                 40.38 μs   (39.68 μs .. 41.69 μs)
+std dev              3.146 μs   (1.942 μs .. 4.824 μs)
+variance introduced by outliers: 76% (severely inflated)
+
+benchmarking JSON (Megaparsec simple choice-optimized)/json-5.json
+time                 1.264 μs   (1.245 μs .. 1.287 μs)
+                     0.998 R²   (0.997 R² .. 1.000 R²)
+mean                 1.255 μs   (1.245 μs .. 1.270 μs)
+std dev              41.54 ns   (25.20 ns .. 59.40 ns)
+variance introduced by outliers: 45% (moderately inflated)
+
+benchmarking JSON (Megaparsec simple choice-optimized)/json-10.json
+time                 2.675 μs   (2.645 μs .. 2.722 μs)
+                     0.998 R²   (0.993 R² .. 1.000 R²)
+mean                 2.671 μs   (2.648 μs .. 2.745 μs)
+std dev              122.5 ns   (46.40 ns .. 246.5 ns)
+variance introduced by outliers: 60% (severely inflated)
+
+benchmarking JSON (Megaparsec simple choice-optimized)/json-20.json
+time                 6.396 μs   (6.366 μs .. 6.430 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 6.418 μs   (6.381 μs .. 6.525 μs)
+std dev              196.0 ns   (77.33 ns .. 415.9 ns)
+variance introduced by outliers: 37% (moderately inflated)
+
+benchmarking JSON (Megaparsec simple choice-optimized)/json-40.json
+time                 12.88 μs   (12.79 μs .. 12.98 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 12.94 μs   (12.82 μs .. 13.25 μs)
+std dev              588.5 ns   (241.0 ns .. 1.144 μs)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking JSON (Megaparsec simple choice-optimized)/json-200.json
+time                 33.54 μs   (33.37 μs .. 33.78 μs)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 33.48 μs   (33.33 μs .. 33.72 μs)
+std dev              649.4 ns   (425.6 ns .. 979.0 ns)
+variance introduced by outliers: 16% (moderately inflated)
+
+Benchmark bench-speed: FINISH

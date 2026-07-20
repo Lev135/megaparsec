@@ -44,14 +44,12 @@ json = space *> (Object <$> jobject <|> Array <$> jarray)
 
 value :: Parser Value
 value =
-  choice
-    [ Object <$> jobject,
-      Array <$> jarray,
-      String <$> jstring,
-      Bool <$> jbool,
-      Null <$ lexString "null",
-      Number <$> jnumber
-    ]
+  Object <$> jobject
+    <|> Array <$> jarray
+    <|> String <$> jstring
+    <|> Bool <$> jbool
+    <|> Null <$ lexString "null"
+    <|> Number <$> jnumber
 
 jobject :: Parser (H.HashMap Text Value)
 jobject =

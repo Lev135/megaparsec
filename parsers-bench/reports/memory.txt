@@ -25,11 +25,11 @@ JSON (Megaparsec)-json-10.json                             49,656    0  10,104
 JSON (Megaparsec)-json-20.json                             90,704    0  10,288
 JSON (Megaparsec)-json-40.json                            163,336    0  10,288
 JSON (Megaparsec)-json-200.json                           318,992    0  32,024
-JSON (Megaparsec simple)-json-5.json                       38,240    0  10,104
-JSON (Megaparsec simple)-json-10.json                      60,368    0  10,104
-JSON (Megaparsec simple)-json-20.json                     121,408    0  10,288
-JSON (Megaparsec simple)-json-40.json                     226,200    0  10,288
-JSON (Megaparsec simple)-json-200.json                    375,688    0  32,024
+JSON (Megaparsec simple)-json-5.json                       34,888    0  10,104
+JSON (Megaparsec simple)-json-10.json                      52,112    0  10,104
+JSON (Megaparsec simple)-json-20.json                     100,704    0  10,288
+JSON (Megaparsec simple)-json-40.json                     183,504    0  10,288
+JSON (Megaparsec simple)-json-200.json                    296,624    0  32,024
 JSON (Megaparsec simple choice-optimized)-json-5.json      29,696    0  10,104
 JSON (Megaparsec simple choice-optimized)-json-10.json     39,768    0  10,104
 JSON (Megaparsec simple choice-optimized)-json-20.json     67,784    0  10,288
