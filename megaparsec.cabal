@@ -51,6 +51,7 @@ library
         Text.Megaparsec.State
         Text.Megaparsec.Stream
         Text.Megaparsec.Unicode
+        Text.Megaparsec.LexicalStream
 
     other-modules:
         Text.Megaparsec.Class
