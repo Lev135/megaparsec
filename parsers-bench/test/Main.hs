@@ -4,6 +4,7 @@ import qualified Data.ByteString as B
 import Data.Foldable
 import qualified ParsersBench.Json.Attoparsec as A
 import qualified ParsersBench.Json.Megaparsec as M
+import qualified ParsersBench.Json.MegaparsecLex as ML
 import qualified ParsersBench.Json.MegaparsecSimple as MS
 import qualified ParsersBench.Json.MegaparsecSimpleOpt as MSO
 import Test.Hspec
@@ -15,7 +16,8 @@ main = hspec $ do
     for_
       [ (M.parseJson, "Megaparsec"),
         (MS.parseJson, "Megaparsec simple"),
-        (MSO.parseJson, "Megaparsec simple choice-optimized")
+        (MSO.parseJson, "Megaparsec simple choice-optimized"),
+        (ML.parseJson, "Megaparsec via lexer")
       ]
       $ \(j, s) ->
         it

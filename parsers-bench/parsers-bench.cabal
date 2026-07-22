@@ -31,6 +31,7 @@ library
         ParsersBench.Json.Megaparsec
         ParsersBench.Json.MegaparsecSimple
         ParsersBench.Json.MegaparsecSimpleOpt
+        ParsersBench.Json.MegaparsecLex
         ParsersBench.Log.Attoparsec
         ParsersBench.Log.Common
         ParsersBench.Log.Megaparsec

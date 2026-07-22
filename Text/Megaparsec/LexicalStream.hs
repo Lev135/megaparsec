@@ -29,8 +29,11 @@ instance forall rs ts. (Stream ts) => Stream (LexicalStream rs ts) where
   chunkLength Proxy = chunkLength @ts Proxy
   chunkEmpty Proxy = chunkEmpty @ts Proxy
   take1_ (LexicalStream rs ts) = fmap (LexicalStream rs) <$> take1_ ts
+  {-# INLINE take1_ #-}
   takeN_ n (LexicalStream rs ts) = fmap (LexicalStream rs) <$> takeN_ n ts
+  {-# INLINE takeN_ #-}
   takeWhile_ f (LexicalStream rs ts) = LexicalStream rs <$> takeWhile_ f ts
+  {-# INLINE takeWhile_ #-}
 
 instance forall rs ts. (VisualStream ts) => VisualStream (LexicalStream rs ts) where
   showTokens Proxy = showTokens @ts Proxy
@@ -65,6 +68,7 @@ instance
           let ro = getRawOffset t
               ro' = maybe (ro + length_ rs - 1) (getRawOffset . fst) $ take1_ ts'
            in reachOffset ro' $ PosState rs ro sp tw pref
+  {-# INLINE reachOffsetNoLine #-}
 
 dropN_ :: (Stream s) => Int -> s -> s
 dropN_ n s = case takeN_ n s of
@@ -88,6 +92,7 @@ liftToken = WithOffset 0
 
 withOffset :: (MonadParsec e s m) => m a -> m (WithOffset a)
 withOffset la = getOffset >>= \o -> WithOffset o <$> la
+{-# INLINE withOffset #-}
 
 offsetted :: (Token s ~ WithOffset t, MonadParsec e s m, Ord t) => t -> m (WithOffset t)
 offsetted c = token test (Set.singleton . Tokens . NE.singleton . liftToken $ c)
@@ -96,3 +101,4 @@ offsetted c = token test (Set.singleton . Tokens . NE.singleton . liftToken $ c)
       if unOffset ot == c
         then Just ot
         else Nothing
+{-# INLINE offsetted #-}
